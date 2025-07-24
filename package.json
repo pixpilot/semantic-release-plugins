@@ -29,14 +29,15 @@
     "clean:packages:install": "pnpm clean:packages && pnpm install",
     "clean:workspaces": "turbo run clean",
     "clean:workspaces:install": "pnpm clean:workspaces && pnpm install",
-    "release": "pnpm -r --workspace-concurrency=1 exec -- semantic-release -e semantic-release-monorepo",
-    "turbo:gen:init": "pnpm turbo gen init"
+    "turbo:gen:init": "pnpm turbo gen init",
+    "release": "pnpm --filter ./packages/semantic-release-require-config... build && pnpm -r --filter \"./packages/*\"  --workspace-concurrency=1 exec -- semantic-release -e semantic-release-monorepo -e @pixpilot/semantic-release-require-config"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",
     "@internal/prettier-config": "workspace:*",
     "@pixpilot/dev-config": "catalog:dev",
+    "@pixpilot/semantic-release-require-config": "workspace:*",
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/commit-analyzer": "^13.0.1",
     "@semantic-release/git": "^10.0.1",
