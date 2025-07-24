@@ -4,6 +4,8 @@
 
 `semantic-release-require-config` is a utility for semantic-release workflows that ensures a release config file is present in your package before running semantic-release. This is especially useful in monorepos or strict release environments, helping prevent accidental releases without explicit configuration.
 
+It is particularly helpful for monorepo setups or auto-generated templates, where a release config file may be missing or not included by default.
+
 > **Note:** This package is not a standalone semantic-release plugin. It is designed to be extended or composed in your own custom plugins or release scripts.
 
 ## Installation
