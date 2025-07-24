@@ -99,7 +99,7 @@ module.exports = function generator(plop: any) {
             // Ensure name is in kebab-case
             const kebabName = toKebabCase(answers.name);
 
-            if (kebabName.startsWith('@acme/') || kebabName.startsWith('@')) {
+            if (kebabName.startsWith('@internal/') || kebabName.startsWith('@')) {
               answers.name = kebabName.replace(/^@[^/]+\//, '');
             } else {
               answers.name = kebabName;
@@ -190,10 +190,10 @@ module.exports = function generator(plop: any) {
               }
             }
           }
-          // Add @acme/semantic-release to devDependencies if isNpmPackage is true
+          // Add @internal/semantic-release to devDependencies if isNpmPackage is true
           if (answers.isNpmPackage === true) {
             if (!pkg.devDependencies) pkg.devDependencies = {};
-            pkg.devDependencies['@acme/semantic-release'] = 'workspace:*';
+            pkg.devDependencies['@internal/semantic-release'] = 'workspace:*';
           }
           // Sort dependencies and devDependencies alphabetically
           if (pkg.dependencies) {

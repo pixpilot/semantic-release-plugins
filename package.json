@@ -25,13 +25,13 @@
     "clean:packages:install": "pnpm clean:packages && pnpm install",
     "clean:workspaces": "turbo run clean",
     "clean:workspaces:install": "pnpm clean:workspaces && pnpm install",
-    "turbo:gen:init": "pnpm turbo gen init",
-    "release": "pnpm -r --workspace-concurrency=1 exec -- semantic-release -e semantic-release-monorepo"
+    "release": "pnpm -r --workspace-concurrency=1 exec -- semantic-release -e semantic-release-monorepo",
+    "turbo:gen:init": "pnpm turbo gen init"
   },
   "devDependencies": {
-    "@acme/prettier-config": "workspace:*",
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",
+    "@internal/prettier-config": "workspace:*",
     "@pixpilot/dev-config": "catalog:dev",
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/commit-analyzer": "^13.0.1",
@@ -54,5 +54,5 @@
     "typescript": "catalog:dev",
     "vitest": "catalog:dev"
   },
-  "prettier": "@acme/prettier-config"
+  "prettier": "@internal/prettier-config"
 }

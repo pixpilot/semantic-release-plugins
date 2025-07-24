@@ -58,5 +58,8 @@
       "defaultLocationForFiles": "project root",
       "description": "Jest Tests Creator"
     }
+  ],
+  "cSpell.words": [
+    "releaserc"
   ]
 }
