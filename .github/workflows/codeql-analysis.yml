@@ -26,9 +26,9 @@ on:
 
 jobs:
   analyze:
-    uses: pixpilot/dev-config/.github/workflows/codeql-analysis.yml@main
+    uses: pixpilot/github/actions/codeql-analysis@main
     with:
-      config-file: .github/codeql/codeql-configuration.yml
+      config-file: .github/codeql/codeql-config.yml
 # -------------------------------------------------------------
 # Alternative: Reusable workflow for code scanning
 # -------------------------------------------------------------
@@ -37,11 +37,15 @@ jobs:
 # integration with GitHub Security UI.
 #
 # jobs:
-#   code-analysis:
-#     uses: pixpilot/dev-config/.github/workflows/codeql-issue-maker.yml@main
-#     with:
-#       language: 'javascript' # or your target language
-#       exclude: 'tests/**,**/__tests__/**,**/*.test.ts,*.spec.ts,**/*.min.js,dist/**,build/**,coverage/**,*.md,*.txt,*.pdf,*.png,*.jpg,*.ico'
-#     secrets:
-#       token: ${{ secrets.GITHUB_TOKEN }}
+#   analyze:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout repository
+#         uses: actions/checkout@v4
+
+#       - name: Run CodeQL Issue Maker
+#         uses: pixpilot/github/actions/codeql-analysis-reporter@main
+#         with:
+#           token: ${{ secrets.GITHUB_TOKEN }}
+#           config-file: .github/codeql/codeql-config.yml
 
