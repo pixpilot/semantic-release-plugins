@@ -26,9 +26,15 @@ on:
 
 jobs:
   analyze:
-    uses: pixpilot/github/actions/codeql-analysis@main
-    with:
-      config-file: .github/codeql/codeql-config.yml
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Run CodeQL Analysis
+        uses: pixpilot/github/actions/codeql-analysis@main
+        with:
+          config-file: .github/codeql/codeql-config.yml
 # -------------------------------------------------------------
 # Alternative: Reusable workflow for code scanning
 # -------------------------------------------------------------
