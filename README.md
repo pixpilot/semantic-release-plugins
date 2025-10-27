@@ -1,7 +1,49 @@
-# semantic-release plugins monorepo
+# semantic-release
 
-This monorepo contains plugins for [semantic-release](https://semantic-release.gitbook.io/semantic-release/).
+> A modern TypeScript monorepo managed with pnpm and TurboRepo.
 
-## Packages
+## 🚀 Getting Started
 
-- [semantic-release-require-config](./packages/semantic-release-require-config) – Ensures that a required config file is present before running semantic-release. This helps prevent accidental releases without proper configuration.
+### Development
+
+Build all packages:
+
+```sh
+pnpm build
+```
+
+Run tests:
+
+```sh
+pnpm test
+```
+
+Lint and format:
+
+```sh
+pnpm lint
+pnpm format
+```
+
+### Create a New Package
+
+Generate a new package in the monorepo:
+
+```sh
+pnpm run turbo:gen:init
+```
+
+## 📦 Packages
+
+### [semantic-release-require-config](./packages/semantic-release-require-config/README.md)
+
+A utility for semantic-release workflows that ensures a release config file is present in your package before running semantic-release. This is especially useful in monorepos or strict release environments, helping prevent accidental releases without explicit configuration.
+
+
+## 🚢 Releases
+
+This project uses [Changesets](https://github.com/changesets/changesets) for version management and publishing.
+
+## 📄 License
+
+[MIT](LICENSE)

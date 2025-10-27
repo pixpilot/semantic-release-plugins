@@ -1,6 +1,7 @@
 {
   "name": "@pixpilot/semantic-release-require-config",
   "version": "1.0.0",
+  "description": "A utility for semantic-release workflows that ensures a release config file is present in your package before running semantic-release. This is especially useful in monorepos or strict release environments, helping prevent accidental releases without explicit configuration.",
   "keywords": [],
   "license": "MIT",
   "author": "pixpilot",

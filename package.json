@@ -1,6 +1,12 @@
 {
   "name": "pnpm-turbo-monorepo-template",
   "private": true,
+  "license": "MIT",
+  "author": "m.doaie <m.doaie@hotmail.com>",
+  "homepage": "https://github.com/pixpilot/semantic-release-plugins",
+  "bugs": {
+    "url": "https://github.com/pixpilot/semantic-release-plugins/issues"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/pixpilot/semantic-release-plugins.git"
@@ -30,7 +36,8 @@
     "clean:workspaces": "turbo run clean",
     "clean:workspaces:install": "pnpm clean:workspaces && pnpm install",
     "turbo:gen:init": "pnpm turbo gen init",
-    "release": "pnpm --filter ./packages/semantic-release-require-config... build && pnpm -r --filter \"./packages/*\"  --workspace-concurrency=1 exec -- semantic-release -e semantic-release-monorepo -e @pixpilot/semantic-release-require-config"
+    "release": "pnpm --filter ./packages/semantic-release-require-config... build && pnpm -r --filter \"./packages/*\"  --workspace-concurrency=1 exec -- semantic-release -e semantic-release-monorepo -e @pixpilot/semantic-release-require-config",
+    "generate-packages-section": "node scripts/generate-packages-section.js"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.8.1",
@@ -59,5 +66,8 @@
     "typescript": "catalog:dev",
     "vitest": "catalog:dev"
   },
-  "prettier": "@internal/prettier-config"
+  "prettier": "@internal/prettier-config",
+  "dependencies": {
+    "@pixpilot/workspace-package-generator": "^2.1.1"
+  }
 }
