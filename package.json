@@ -68,6 +68,6 @@
   },
   "prettier": "@internal/prettier-config",
   "dependencies": {
-    "@pixpilot/workspace-package-generator": "^2.1.1"
+    "@pixpilot/workspace-package-generator": "^2.1.2"
   }
 }
