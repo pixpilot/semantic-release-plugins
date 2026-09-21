@@ -44,7 +44,7 @@ jobs:
   #           token: ${{ steps.generate_token.outputs.token }}
   #
   #       - name: Setup project
-  #         uses: ./.github/actions/setup-project
+  #         uses: pixpilot/github-actions/setup-pnpm-project@v1
   #         with:
   #           registry-url: 'https://registry.npmjs.org'
   #
@@ -72,9 +72,11 @@ jobs:
           fetch-depth: 0
 
       - name: Setup project
-        uses: ./.github/actions/setup-project
+        uses: pixpilot/github-actions/setup-pnpm-project@v1
         with:
           registry-url: 'https://registry.npmjs.org'
+          node-version: '20'
+          build: 'true'
 
       - name: Release with semantic-release
         env:
