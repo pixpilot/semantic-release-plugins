@@ -83,3 +83,17 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: pnpm run release
+
+  notify:
+    name: Notify on Release Failure
+    needs: [ci, release]
+    if: always()
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Send Telegram notification
+        uses: pixpilot/notify-action@v1
+        with:
+          status: ${{ contains(needs.*.result, 'failure') && 'failure' || contains(needs.*.result, 'cancelled') && 'cancelled' || 'success' }}
+          telegram-bot-token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          telegram-chat-id: ${{ secrets.TELEGRAM_CHAT_ID }}
